@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  kafka-zookeeper:
+    image: dougdonohoe/kafka-zookeeper:2.6.0
+    ports:
+      - "2181:2181"
+      - "9092:9092"
+    environment:
+      ADVERTISED_HOST: "localhost"

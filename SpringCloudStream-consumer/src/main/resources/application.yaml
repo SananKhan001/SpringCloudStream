@@ -1,0 +1,32 @@
+server:
+  port: 9091
+
+spring:
+  application:
+    name: SpringCloudStream-consumer
+
+  cloud:
+    function:
+      definition: processorBinding;consumerBinding #producerBinding;
+    stream:
+      bindings:
+#        producerBinding-out-0:
+#          destination: producer-message
+        processorBinding-in-0:
+          destination: in-of-cons
+        processorBinding-out-0:
+          destination: consumer-of-cons
+        consumerBinding-in-0:
+          destination: consumer-of-cons
+      kafka:
+        binder:
+          applicationId: producer-app
+          brokers: localhost:9092
+#          configuration:
+#            default:
+#              key:
+#                serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+#              value:
+#                serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+
+
